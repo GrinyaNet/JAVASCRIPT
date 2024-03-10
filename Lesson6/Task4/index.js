@@ -10,7 +10,8 @@ function swap(numbers) {
    */
   function swapManual(numbers) {
     // put your code here
-    const arr = numbers;
+    let arr = [];
+    arr = numbers;
     const element = arr.shift();    
     arr.push(element);    
 
