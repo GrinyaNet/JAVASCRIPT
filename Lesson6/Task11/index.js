@@ -1,6 +1,4 @@
 const checker = (arr) => {
-    // put your code here 
-    
 
     if (!Array.isArray(arr)) {
         return null;
