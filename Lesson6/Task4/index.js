@@ -10,12 +10,15 @@ function swap(numbers) {
    */
   function swapManual(numbers) {
     // put your code here
-    let arr = [];
-    arr = numbers;
+
+    //let arr = [];
+    //arr = numbers;
+    let arr = numbers.slice();
     const element = arr.shift();    
     arr.push(element);    
 
-    return arr;
+    //return arr;
+    return {result: arr, inpytArr: numbers };
     
   }
   
