@@ -7,7 +7,7 @@
 
 const getRandomNumbers = (length, from, to) => {
     // put your code here
-    const bufer  = [...Array(length)];    
+    const bufer  = [...Array(length)];
     if ((from > to) || ((Math.floor(to)) - (Math.floor(from))) < 1) {
         return null;
     }
