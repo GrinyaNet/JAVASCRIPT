@@ -1,0 +1,53 @@
+const cleanTransactionsList = arr => {
+const bufer = arr.slice();
+const result = [];
+
+//const cleanTransactionsList = transactions =>
+  //transactions.filter(tr => isFinite(tr)).map(tr => `$${Number.parseFloat(tr).toFixed(2)}`);
+
+
+
+
+//let res = arr.join();
+
+//console.log(bufer[2]);//
+//console.log(Number(bufer[2]));//
+//console.log(arr[0].toFixed(2));
+//let res = arr.toString();
+//let a = res.replaceAll(' ', '');
+//let f = (Number(bufer[0].replace(/[a-z]/gi, ''))).toFixed(2);//
+//let f1 = f.toFixed(2);
+//console.log(f.toFixed(2));
+//let xx = '$' + f;
+//result.push('$' + f);//
+//let b = Number(f);
+//console.log(f);//
+//console.log(xx);
+//let c = (b.toFixed(2));
+//console.log(c);
+//const x = aar1.push(('$' + f));
+const sec = bufer.filter(tr => isFinite(tr)).map(tr => {
+for (let i = 0; i < bufer.length; i++) {
+    //let ind = i;
+    console.log(tr);
+    //let a = (bufer[ind].replaceAll(' ', ''));
+    const f = (Number(tr.replace(/[a-z]/gi, ''))).toFixed(2);
+    //result.push('$' + f);
+    //ind +=1;
+    //return f;
+}});
+
+//transactions.filter(tr => isFinite(tr)).map(tr => ...
+
+//(/[a-zа-яё]/gi, '')
+
+// bufer.forEach((element) => {
+//     console.log(element[2]);
+// //(Number(element.replace(/[a-z]/gi, ''))).toFixed(2);
+// result.push('$' + element);
+//  });
+return sec;
+};
+
+//console.log(cleanTransactionsList(['  1.9 ', '16.4', 17, ' 1 dollar ']));
+console.log(cleanTransactionsList(['  1.9 ', '16.4', 17, ' 1']));
