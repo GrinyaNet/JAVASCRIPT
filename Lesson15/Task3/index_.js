@@ -3,47 +3,80 @@
  */
  export const createLogger = () => {
     // put your code here    
-    const arr = [];
+    let arr = [];
     let arr1 = [];
-    let sorted =[];    
-    
-return {
-    warn(message) {        
-        arr.push({
-            message,
-            dateTime: new Date(),
-           type: 'warn',
-        });
-    },
+    let sorted =[];
+    let message = '';
+    let type = '';
+    let Hour = 0;
+    let Minutes = 0;
+    let Seconds = 0;
+    let dateTime = 0;
+    let miliSeconds = 0;
 
-    error(message) {
-        arr.push({
-            message,
-            dateTime: new Date(),
-           type: 'error',
-        });
-    },
+    function times() {
+        let time = new Date();
+        Hour = time.getHours();
+        Minutes = time.getMinutes().toString().padStart(2, '0');
+        Seconds = time.getSeconds().toString().padStart(2, '0');
+        miliSeconds = time.getMilliseconds();
+        return dateTime = (`${Hour}:${Minutes}:${Seconds}:${miliSeconds}`);
+    }
 
-     log(message) {
-        arr.push({
-            message,
-            dateTime: new Date(),
-           type: 'log',
-        });
-    },
+    function warn(string) {
+        let result = {};
+        message = string;
+        type = 'warn';
+        dateTime = times();
+        result.message = message;
+        result.dateTime = dateTime;
+        result.type = type;
+        arr.push(result);        
+        return arr;
+    }
 
-     getRecords(message) {
-        if (typeof message !== "string") {
+    function error(string) {
+        let result = {};
+        message = string;
+        type = 'error';
+        dateTime = times();
+        result.message = message;
+        result.dateTime = dateTime;
+        result.type = type;
+        arr.push(result);
+        return arr;
+
+    }
+
+    function log(string) {
+        let result = {};
+        message = string;
+        type = 'log';
+        dateTime = times();
+        result.message = message;
+        result.dateTime = dateTime;
+        result.type = type;
+        arr.push(result);
+        return arr;
+    }
+
+    function getRecords(string) {
+        if (typeof string !== "string") {
             
-            sorted = arr.sort((type1, type2) => type1[arr.type] - type2[arr.type] ? 1 : -1);
+            sorted = arr.sort((type1, type2) => type1[type] - type2[type] ? 1 : -1);
             return sorted;
         }
-        arr1 = arr.filter(elem => (elem.type === message));
-        sorted = arr1.sort((type1, type2) => type1[arr.type] - type2[arr.type] ? 1 : -1);        
+        arr1 = arr.filter(elem => (elem.type === string));
+        sorted = arr1.sort((type1, type2) => type1[type] - type2[type] ? 1 : -1);        
         return sorted;
-    },
+    }
 
- };
+    return {
+        warn,
+        error,
+        log,
+        getRecords,        
+    };
     
 };
 
