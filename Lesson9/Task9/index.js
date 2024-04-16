@@ -11,7 +11,7 @@ function buildObject(keysList, valuesList) {
 // newArr.push(index = valuesList[i]);
 //         i +=1;
 //     }
-newObj = {};
+const newObj = {};
     let i =0;
 for (let i = 0; i<keysList.length; i++) {
     newObj[keysList[i]] = valuesList[i];

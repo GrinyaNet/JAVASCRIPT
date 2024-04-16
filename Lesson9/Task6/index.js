@@ -41,7 +41,7 @@ const getPeople = obj => {
     return arr;
 };
 
-rooms = {
+let rooms = {
     room1: [
         { name: 'Jack' },
         { name: 'Jack1' },

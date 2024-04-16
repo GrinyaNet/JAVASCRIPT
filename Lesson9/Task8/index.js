@@ -27,9 +27,9 @@ function addPropertyV1(obj, key, value) {
   // put your code here
   function addPropertyV3(obj, key, value) {    
     const newObj = {};
-    const clonObj = {};
+    //const clonObj = {};
     newObj[key] = value;
-    userData = Object.assign(clonObj, obj, newObj);
+    const userData = Object.assign({}, obj, newObj);
     return userData;
   }
   
@@ -45,5 +45,5 @@ function addPropertyV1(obj, key, value) {
   const transaction = {
     value: 170,
   };
-  console.log(addPropertyV2(transaction, 'currency', 'USD')); // ==> { value: 170, currency: 'USD' }
+  console.log(addPropertyV3(transaction, 'currency', 'USD')); // ==> { value: 170, currency: 'USD' }
   

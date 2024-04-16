@@ -11,22 +11,22 @@
  */
 
   // put your code here
-const event = {
+const testEvent = {
     quests: [
-{ name: 'Tom', email: 't@gmail.com', age: 17},
-{ name: 'Bob', email: 'b@gmail.com', age: 18}
+{ name: 'Tom', age: 17, email: 'example@seryer.com'},
+{ name: 'Bob', age: 18, email: 'example@seryer.com'}
     ],
     message: 'Welcome to the party',
-    getInvintations() {
+    getInvitations() {
         return this.guests
         .filter(({age}) => age >= 18)
         .map(({ name, email}) => ({            
-                text: `Hi ${name}, ${this.message}`,
-                email
+                message: `Dear ${name}! ${this.message}`,
+                email,                
             }));    
         
     }
 }
 
 
-console.log(event.getInvintations());
+console.log(testEvent.getInvitations());
