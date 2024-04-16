@@ -6,9 +6,7 @@
  * @return {boolean}
  */
 function compareObjects(firstObj, secondObj) {
-  // put your code here
-  //const isEqual = Object.is(firstObj, secondObj);  
-  //const result = isEqual(firstObj, secondObj);
+  // put your code here  
   let arr = [];
   let arrSec = [];
   //1. Преобразовать объект в массив.
@@ -23,10 +21,7 @@ function compareObjects(firstObj, secondObj) {
   let str = arrSort.join(' ');
   let strSec = arrSortSec.join(' ');
   //4  Сравниваем строки.
-let result = (str === strSec)
-  //console.log(enteries);
-  
-  //let res = enteries.map(([index, item]) => console.log(index, item));
+let result = (str === strSec);
 
 return result;
 }
