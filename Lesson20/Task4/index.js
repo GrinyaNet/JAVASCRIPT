@@ -11,17 +11,18 @@
  */
 class Order {
     // put your code here
-    constructor(price, city, type, id) {
+    constructor(price, city, type) {
         this.price = price;
         this.city = city;
         this.type = type;
-        this.id = id;
+        this.id = Math.random().toString();
         this.isConfirmed = false;
-        this.dateConfirmed = new Date();
+        this.dateConfirmed = null;
+        this.dateCreated = new Date();
     }
 
-    checkPrice(sum) {
-        if (sum > 1000) {
+    checkPrice() {
+        if (this.price > 1000) {
             return true;
         }
         {
@@ -30,19 +31,18 @@ class Order {
 
     }
 
-    confirmOrder(isConfirmed) {
+    confirmOrder() {
         if (this.isConfirmed == true) {
-            return false
-        }
+            return false;
+        } else
         {
             this.isConfirmed = true;
-            console.log(this.dateConfirmed = new Date());
-
+            this.dateConfirmed = new Date();        
         }
     }
 
-    isValidType(type) {
-        if (type === 'Buy' || type === 'Sell') {
+    isValidType() {
+        if (this.type === 'Buy' || this.type === 'Sell') {
             return true;
         }
         {
@@ -52,4 +52,6 @@ class Order {
 }
 
 const order1 = new Order();
-console.log(order1.confirmOrder(true));
+//console.log(order1);
+console.log(order1.confirmOrder());
+console.log(order1);
