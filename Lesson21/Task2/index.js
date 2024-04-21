@@ -10,5 +10,3 @@ export function getInputElement()  {
     return elem;
 }
 
-getTitleElement();
-getInputElement();
