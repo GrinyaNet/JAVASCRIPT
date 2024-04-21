@@ -1,24 +1,20 @@
 export function getTitle()  {
-    let elem = document.querySelector('.title');
-    console.dir(elem.textContent);
+    let elem = document.querySelector('.title');    
     return elem.textContent;
 }
 
 export function getDescription()  {
-    let elem = document.querySelector('.about');
-    console.dir(elem.innerText);
+    let elem = document.querySelector('.about');    
     return elem.textContent;
 }
 
 export function getPlans()  {
-    let elem = document.querySelector('.plans');
-    console.dir(elem.innerHTML);
+    let elem = document.querySelector('.plans');    
     return elem.textContent;
 }
 
 export function getGoal()  {
-    let elem = document.querySelector('.goal');
-    console.dir(elem.outerHTML);
+    let elem = document.querySelector('.goal');    
     return elem.textContent;
 }
 
