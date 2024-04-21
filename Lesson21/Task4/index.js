@@ -5,17 +5,17 @@ export function getTitle()  {
 
 export function getDescription()  {
     let elem = document.querySelector('.about');    
-    return elem.textContent;
+    return elem.innerText;
 }
 
 export function getPlans()  {
     let elem = document.querySelector('.plans');    
-    return elem.textContent;
+    return elem.innerHTML;
 }
 
 export function getGoal()  {
     let elem = document.querySelector('.goal');    
-    return elem.textContent;
+    return elem.outerHTML;
 }
 
 getTitle();
