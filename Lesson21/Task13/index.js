@@ -1,12 +1,10 @@
-function getSection(num)  {
-   
-    let elem = document.querySelector('.number');
-    let num = elem.dataset.number;       
-    elem.dataset.squarednumber = Math.pow(num, 2);
-    elem = document.querySelector('.number');
-    num = elem.dataset.number;       
-    elem.dataset.squarednumber = Math.pow(num, 2);
-    `span[data-number="${num}]`
+function getSection(num) {
+    let number = num.toString();
+    let elem = document.querySelector(`span[data-number = "${number}"]`);
+    return elem.parentElement.dataset.section;
+    //let data = elem.parentElement;
+    //let a = data.dataset.section;
+    //return console.dir(a);
 }
 
-getSection();
+getSection(3);
