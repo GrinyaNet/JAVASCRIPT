@@ -1,9 +1,10 @@
 function squaredNumbers()  {
-   
-    let elem = document.querySelector('.number');
-    let num = elem.dataset.number;       
-    elem.dataset.squaredNumber = Math.pow(num, 2);
-    
+    document.querySelectorAll('.number').forEach(function(elem) {
+        elem.dataset.squaredNumber = Math.pow(elem.dataset.number, 2);
+    });
+    //let elem = document.querySelector('.number');
+    //let num = elem.dataset.number;       
+    //elem.dataset.squaredNumber = Math.pow(elem.dataset.number, 2);    
     
 }
 
