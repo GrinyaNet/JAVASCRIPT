@@ -51,14 +51,16 @@ addButton.addEventListener('click', function () {
     renderTasks(tasks);
 })
 
-listElem.addEventListener('click', function () {
 
-     let newCheck = Array.from(document.querySelectorAll('.list__item-checkbox'));
-     newCheck.forEach((checkbox, index) => {
-         checkbox.dataset.id = index;
-     })
-     
-     
+const check = document.querySelectorAll('.list__item-checkbox').forEach(item => {
+
+    let newCheck = Array.from(document.querySelectorAll('.list__item-checkbox'));
+    newCheck.forEach((checkbox, index) => {
+        checkbox.dataset.id = index;
+    })
+
+
+    item.addEventListener('click', function () {
         newCheck.forEach((checkbox) => {
             let ind = 0;
             if (checkbox.checked) {
@@ -69,12 +71,13 @@ listElem.addEventListener('click', function () {
                 tasks[Number(ind)].done = false;
             }
 
-        
-         listElem.innerHTML = '';
-         renderTasks(tasks); 
+        })
+        listElem.innerHTML = '';
+        renderTasks(tasks);
+
+    });
+
 
 });
-});
-
 
 console.log('Hello!!!');
