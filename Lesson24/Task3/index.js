@@ -3,21 +3,21 @@
 const getDiff = (startDate, endDate) => {
     const result = Math.abs(new Date(startDate) - new Date(endDate));
     //const result = Math.abs(startDate.getTime() - endDate.getTime());
-    const day = Math.floor(result / 86400000);
-    let buffer = Math.floor(result % 86400000);
-    const hour = Math.floor(buffer / 36000000);
-    buffer = Math.floor(buffer % 36000000);
-    const min = Math.floor(buffer / 60000);
-    buffer = Math.floor(buffer % 60000);
-    const sec = Math.floor(buffer / 1000);
-    return (`${day}d ${hour}h ${min}m ${sec}s`);
+    const day = Math.trunc(result / 86400000);
+    let buffer = Math.trunc(result % 86400000);    
+    const hour = Math.trunc(buffer / 3600000);    
+     buffer = Math.trunc(buffer % 3600000);
+     const min = Math.trunc(buffer / 60000);
+     buffer = Math.trunc(buffer % 60000);
+     const sec = Math.trunc(buffer / 1000);
+     return (`${day}d ${hour}h ${min}m ${sec}s`);
     
     
     //console.log(result);
 };
 
 //console.log(getDiff(new Date(), new Date()));
-console.log(getDiff(new Date('2021-08-18'), new Date('2024-08-18')));
+console.log(getDiff(new Date('2024-04-27'), new Date()));
 // let msDiff = newYearDate - today,
 //     days = Math.floor(msDiff / (24 * 60 * 60 * 1000)),
 //     hours = Math.floor((msDiff / (1000 * 60 * 60)) % 24),
