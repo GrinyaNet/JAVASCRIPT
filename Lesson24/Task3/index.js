@@ -10,10 +10,11 @@ const getDiff = (startDate, endDate) => {
      const min = Math.trunc(buffer / 60000);
      buffer = Math.trunc(buffer % 60000);
      const sec = Math.trunc(buffer / 1000);
+     console.log(result);
      return (`${day}d ${hour}h ${min}m ${sec}s`);
     
     
-    //console.log(result);
+    
 };
 
 //console.log(getDiff(new Date(), new Date()));
