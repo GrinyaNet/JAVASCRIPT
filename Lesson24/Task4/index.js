@@ -25,16 +25,20 @@ newStudents.sort((first, second) => new Date(first.birthDate.slice(0, 5)) - new 
 //      }    
 // });
  newStudents.forEach(element => {
-
+    
      console.log(formatter.format(new Date(element.birthDate)));
      let d = formatter.format(new Date(element.birthDate));
      let c = formatter.format(new Date(element.birthDate));
 //     //birth[formatter.format(new Date(element.birthDate).getMonth())] = [];
-if (c = d) {
-    
-}
-arr.push(element.name);
+// if (c = d) {
+
+// }
+//arr.push(element.name);
      birth[d] = arr;
+    //  if (c = d) {
+         arr.push(element.name);
+    //      }
+     
       //birth.d = element.name;
 
  });
