@@ -28,7 +28,7 @@ newStudents.sort((first, second) => new Date(first.birthDate.slice(0, 5)) - new 
     
      console.log(formatter.format(new Date(element.birthDate)));
      let d = formatter.format(new Date(element.birthDate));
-     let c = formatter.format(new Date(element.birthDate));
+     //let c = formatter.format(new Date(element.birthDate));
 //     //birth[formatter.format(new Date(element.birthDate).getMonth())] = [];
 // if (c = d) {
 
@@ -38,7 +38,9 @@ newStudents.sort((first, second) => new Date(first.birthDate.slice(0, 5)) - new 
     //  if (c = d) {
          arr.push(element.name);
     //      }
-     
+     if (birth.hasOwnProperty(d) &&  == d ) {
+        console.log('GGGGG');
+     }
       //birth.d = element.name;
 
  });
