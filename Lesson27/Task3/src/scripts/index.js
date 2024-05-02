@@ -1,42 +1,57 @@
-import {createTask} from './createTask.js';
-import {todoList} from './todoList.js';
+import { createTask } from './createTask.js';
+import { todoList } from './todoList.js';
+import { tasks } from './storage.js';
+import { renderTasks } from './updateTask.js';
 
-const tasks = [
-    { text: 'Buy milk', done: false },
-    { text: 'Pick up Tom from airport', done: false },
-    { text: 'Visit party', done: false },
-    { text: 'Visit doctor', done: true },
-    { text: 'Buy meat', done: true },
-];
+ document.addEventListener('DOMContentLoaded', () => {     
+     renderTasks(tasks);
+     createTask(tasks);
+     todoList(tasks);
+   });
 
-export const listElem = document.querySelector('.list');
+   window.addEventListener('storage', renderTasks);
 
-export const renderTasks = tasksList => {
-    const tasksElems = tasksList
-        .sort((a, b) => a.done - b.done)
-        .map(({ text, done }) => {
-            const listItemElem = document.createElement('li');
-            listItemElem.classList.add('list__item');
-            const checkbox = document.createElement('input');
-            checkbox.setAttribute('type', 'checkbox');
-            checkbox.checked = done;
-            checkbox.classList.add('list__item-checkbox');
-            if (done) {
-                listItemElem.classList.add('list__item_done');
-            }
-            listItemElem.append(checkbox, text);
+//renderTasks(tasks);
+    //createTask(tasks);
+    //todoList(tasks);
+    //initTodoListHandlers();
 
-            return listItemElem;
-        });
+// const tasks = [
+//     { text: 'Buy milk', done: false },
+//     { text: 'Pick up Tom from airport', done: false },
+//     { text: 'Visit party', done: false },
+//     { text: 'Visit doctor', done: true },
+//     { text: 'Buy meat', done: true },
+// ];
 
-    listElem.append(...tasksElems);
-};
+// export const listElem = document.querySelector('.list');
 
-renderTasks(tasks);
+// export const renderTasks = tasksList => {
+//     const tasksElems = tasksList
+//         .sort((a, b) => a.done - b.done)
+//         .map(({ text, done }) => {
+//             const listItemElem = document.createElement('li');
+//             listItemElem.classList.add('list__item');
+//             const checkbox = document.createElement('input');
+//             checkbox.setAttribute('type', 'checkbox');
+//             checkbox.checked = done;
+//             checkbox.classList.add('list__item-checkbox');
+//             if (done) {
+//                 listItemElem.classList.add('list__item_done');
+//             }
+//             listItemElem.append(checkbox, text);
+
+//             return listItemElem;
+//         });
+
+//     listElem.append(...tasksElems);
+// };
+
+//renderTasks(tasks);
 
 // put your code here
-createTask(tasks);
-todoList(tasks);
+//createTask(tasks);
+//todoList(tasks);
 // let addMessage = document.querySelector('.task-input');
 // const addButton = document.querySelector('.create-task-btn');
 // addButton.addEventListener('click', function () {
@@ -61,8 +76,8 @@ todoList(tasks);
 //      newCheck.forEach((checkbox, index) => {
 //          checkbox.dataset.id = index;
 //      })
-     
-     
+
+
 //         newCheck.forEach((checkbox) => {
 //             let ind = 0;
 //             if (checkbox.checked) {
@@ -73,7 +88,7 @@ todoList(tasks);
 //                 tasks[Number(ind)].done = false;
 //             }
 
-        
+
 //          listElem.innerHTML = '';
 //          renderTasks(tasks); 
 

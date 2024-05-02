@@ -1,4 +1,5 @@
-import {listElem, renderTasks} from './index.js';
+import {listElem, renderTasks} from './updateTask.js';
+//import {tasks} from './storage.js';
 
 
 export const createTask = (tasks) => {
@@ -13,8 +14,7 @@ addButton.addEventListener('click', function () {
         text: addMessage.value,
         done: false,
     };
-    tasks.push(newMessade);
-    console.dir(tasks);
+    tasks.push(newMessade);    
     addMessage.value = '';
     listElem.innerHTML = '';
     renderTasks(tasks);

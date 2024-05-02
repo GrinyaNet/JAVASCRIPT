@@ -1,4 +1,5 @@
-import {listElem, renderTasks} from './index.js';
+import {listElem, renderTasks} from './updateTask.js';
+//import {tasks} from './storage.js';
 
 export const todoList = (tasks) => {
  listElem.addEventListener('click', function () {
