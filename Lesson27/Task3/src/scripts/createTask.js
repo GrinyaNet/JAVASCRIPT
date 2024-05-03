@@ -14,10 +14,12 @@ addButton.addEventListener('click', function () {
         text: addMessage.value,
         done: false,
     };
-    tasks.push(newMessade);    
+    tasks.push(newMessade);
+    localStorage.setItem('person', JSON.stringify(tasks));
     addMessage.value = '';
     listElem.innerHTML = '';
     renderTasks(tasks);
 })
-return console.log('NNNNNNNNN')
+
+
 };

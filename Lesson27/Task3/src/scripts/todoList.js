@@ -1,5 +1,5 @@
 import {listElem, renderTasks} from './updateTask.js';
-//import {tasks} from './storage.js';
+import {tasks} from './storage.js';
 
 export const todoList = (tasks) => {
  listElem.addEventListener('click', function () {
@@ -20,7 +20,7 @@ export const todoList = (tasks) => {
                 tasks[Number(ind)].done = false;
             }
 
-        
+            localStorage.setItem('person', JSON.stringify(tasks));
          listElem.innerHTML = '';
          renderTasks(tasks); 
 

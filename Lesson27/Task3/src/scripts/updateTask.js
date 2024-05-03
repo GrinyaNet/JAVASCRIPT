@@ -1,9 +1,12 @@
 //import {listElem, renderTasks} from './index.js';
-//import {tasks} from './storage.js';
+import {tasks, getArr} from './storage.js';
+//import { tasks } from './storage.js';
+import {todoList} from './todoList.js';
 
 export const listElem = document.querySelector('.list');
 
 export const renderTasks = tasksList => {
+//    getArr(tasks);
     const tasksElems = tasksList
         .sort((a, b) => a.done - b.done)
         .map(({ text, done }) => {
@@ -22,4 +25,8 @@ export const renderTasks = tasksList => {
         });
 
      listElem.append(...tasksElems);
+     
+     //localStorage.getItem('person', JSON.parse(tasks));
 };
+
+//localStorage.getItem('person', JSON.parse(tasks));

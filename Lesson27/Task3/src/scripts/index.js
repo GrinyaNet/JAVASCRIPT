@@ -1,20 +1,21 @@
 import { createTask } from './createTask.js';
 import { todoList } from './todoList.js';
-import { tasks } from './storage.js';
+import { tasks, getArr } from './storage.js';
 import { renderTasks } from './updateTask.js';
 
- document.addEventListener('DOMContentLoaded', () => {     
-     renderTasks(tasks);
-     createTask(tasks);
-     todoList(tasks);
-   });
+document.addEventListener('DOMContentLoaded', () => {
+    renderTasks(getArr(tasks));
+    createTask(tasks);
+    todoList(tasks);
+});
 
-   window.addEventListener('storage', renderTasks);
+//window.addEventListener('tasks', renderTasks);
+//window.addEventListener('storage', renderTasks);
 
 //renderTasks(tasks);
-    //createTask(tasks);
-    //todoList(tasks);
-    //initTodoListHandlers();
+//createTask(tasks);
+//todoList(tasks);
+//initTodoListHandlers();
 
 // const tasks = [
 //     { text: 'Buy milk', done: false },
@@ -94,6 +95,3 @@ import { renderTasks } from './updateTask.js';
 
 // });
 // });!!!
-
-
-console.log('Hello!!!');
