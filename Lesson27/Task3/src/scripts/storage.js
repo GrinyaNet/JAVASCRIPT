@@ -7,8 +7,7 @@ export const tasks = [
     { text: 'Buy meat', done: true },
 ];
 
-export const getArr = (tasks) => {
-    //const arr = [];
+export const getArr = (tasks) => {    
     const t = JSON.parse(localStorage.getItem('person')) || [];
     console.log(t);
     if (t.length !== 0) {

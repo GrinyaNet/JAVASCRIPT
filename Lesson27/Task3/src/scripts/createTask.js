@@ -1,6 +1,4 @@
 import {listElem, renderTasks} from './updateTask.js';
-//import {tasks} from './storage.js';
-
 
 export const createTask = (tasks) => {
 let addMessage = document.querySelector('.task-input');
@@ -20,6 +18,4 @@ addButton.addEventListener('click', function () {
     listElem.innerHTML = '';
     renderTasks(tasks);
 })
-
-
 };
