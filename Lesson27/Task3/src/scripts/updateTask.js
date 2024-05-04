@@ -24,6 +24,7 @@ export const renderTasks = tasksList => {
 
      listElem.append(...tasksElems);
      
+     
      //localStorage.getItem('person', JSON.parse(tasks));
 };
 

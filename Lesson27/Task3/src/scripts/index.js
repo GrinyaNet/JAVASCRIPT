@@ -8,3 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createTask(tasks);
     todoList(tasks);
 });
+
+
+window.addEventListener('storage',renderTasks(tasks));

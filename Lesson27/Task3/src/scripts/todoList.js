@@ -15,6 +15,7 @@ export const todoList = (tasks) => {
             if (checkbox.checked) {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
+                //e.target.dataset.id
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
