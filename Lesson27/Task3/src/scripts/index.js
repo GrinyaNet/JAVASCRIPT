@@ -1,13 +1,94 @@
-import { createTask } from './createTask.js';
-import { todoList } from './todoList.js';
-import { tasks, getArr } from './storage.js';
-import { renderTasks } from './updateTask.js';
+// const tasks = [
+//     { text: 'Buy milk', done: false },
+//     { text: 'Pick up Tom from airport', done: false },
+//     { text: 'Visit party', done: false },
+//     { text: 'Visit doctor', done: true },
+//     { text: 'Buy meat', done: true },
+// ];
+//import { getArr } from './storage.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    renderTasks(getArr(tasks));
-    createTask(tasks);
-    todoList(tasks);
+ 
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+
+const listElem = document.querySelector('.list');
+
+const renderTasks = tasksList => {
+    
+    const tasksElems = tasksList
+        .sort((a, b) => a.done - b.done)
+        .map(({ text, done }) => {
+            const listItemElem = document.createElement('li');
+            listItemElem.classList.add('list__item');
+            const checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.checked = done;
+            checkbox.classList.add('list__item-checkbox');
+            if (done) {
+                listItemElem.classList.add('list__item_done');
+            }
+            listItemElem.append(checkbox, text);
+
+            return listItemElem;
+        });
+
+    listElem.append(...tasksElems);
+};
+
+renderTasks(tasks);
+
+// put your code here
+
+let addMessage = document.querySelector('.task-input');
+const addButton = document.querySelector('.create-task-btn');
+addButton.addEventListener('click', function () {
+    if (addMessage.value === '') {
+        return;
+    }
+
+    let newMessade = {
+        text: addMessage.value,
+        done: false,
+    };
+    tasks.push(newMessade);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    //setArr();
+    console.dir(tasks);
+    addMessage.value = '';
+    listElem.innerHTML = '';
+    renderTasks(tasks);
+})
+
+listElem.addEventListener('click', function () {
+
+     let newCheck = Array.from(document.querySelectorAll('.list__item-checkbox'));
+     newCheck.forEach((checkbox, index) => {
+         checkbox.dataset.id = index;
+     })
+     
+     
+        newCheck.forEach((checkbox) => {
+            let ind = 0;
+            if (checkbox.checked) {
+                ind = checkbox.dataset.id;
+                tasks[Number(ind)].done = true;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                //setArr();
+            } else {
+                ind = checkbox.dataset.id;
+                tasks[Number(ind)].done = false;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                //setArr();
+            }
+
+        
+         listElem.innerHTML = '';
+         renderTasks(tasks); 
+
 });
+});
+document.addEventListener('DOMContentLoaded', renderTasks(tasks));
+   
 
 
-window.addEventListener('storage',renderTasks(tasks));
+window.addEventListener('storage', renderTasks(tasks));

@@ -64,8 +64,6 @@ listElem.addEventListener('click', function () {
             if (checkbox.checked) {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
-                //ind = event.target.dataset.id;
-                // tasks[ind].done = true;
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;

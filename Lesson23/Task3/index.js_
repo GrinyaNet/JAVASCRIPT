@@ -64,8 +64,6 @@ listElem.addEventListener('click', function () {
             if (checkbox.checked) {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
-                //ind = event.target.dataset.id;
-                // tasks[ind].done = true;
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
@@ -78,51 +76,5 @@ listElem.addEventListener('click', function () {
 });
 });
 
-// ////////
-// let addMessage = document.querySelector('.task-input');
-// const addButton = document.querySelector('.create-task-btn');
-// addButton.addEventListener('click', function () {
-//     if (addMessage.value === '') {
-//         return;
-//     }
 
-//     let newMessade = {
-//         text: addMessage.value,
-//         done: false,
-//     };
-//     tasks.push(newMessade);
-//     console.dir(tasks);
-//     addMessage.value = '';
-//     listElem.innerHTML = '';
-//     renderTasks(tasks);
-// })
-
-
-// const check = document.querySelectorAll('.list__item-checkbox').forEach(item => {
-
-//     let newCheck = Array.from(document.querySelectorAll('.list__item-checkbox'));
-//     newCheck.forEach((checkbox, index) => {
-//         checkbox.dataset.id = index;
-//     })
-
-
-//     item.addEventListener('click', function () {
-//         newCheck.forEach((checkbox) => {
-//             let ind = 0;
-//             if (checkbox.checked) {
-//                 ind = checkbox.dataset.id;
-//                 tasks[Number(ind)].done = true;
-//             } else {
-//                 ind = checkbox.dataset.id;
-//                 tasks[Number(ind)].done = false;
-//             }
-
-//         })
-//         listElem.innerHTML = '';
-//         renderTasks(tasks);
-
-//     });
-
-
-// });
-
+console.log('Hello!!!');

@@ -1,17 +1,24 @@
 
-export const tasks = [
-    { text: 'Buy milk', done: false },
-    { text: 'Pick up Tom from airport', done: false },
-    { text: 'Visit party', done: false },
-    { text: 'Visit doctor', done: true },
-    { text: 'Buy meat', done: true },
-];
+// export const tasks = [
+//     { text: 'Buy milk', done: false },
+//     { text: 'Pick up Tom from airport', done: false },
+//     { text: 'Visit party', done: false },
+//     { text: 'Visit doctor', done: true },
+//     { text: 'Buy meat', done: true },
+// ];
+ const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-export const getArr = (tasks) => {    
-    const t = JSON.parse(localStorage.getItem('person')) || [];
+export const setArr = () => {
+    
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+export const getArr = () => {    
+    const t = JSON.parse(localStorage.getItem('tasks')) || [];
     console.log(t);
     if (t.length !== 0) {
-    return tasks = t.slice();
+    tasks = t.slice();
+    return tasks;
     }
     
 }
