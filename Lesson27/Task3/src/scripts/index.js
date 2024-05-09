@@ -1,10 +1,3 @@
-// const tasks = [
-//     { text: 'Buy milk', done: false },
-//     { text: 'Pick up Tom from airport', done: false },
-//     { text: 'Visit party', done: false },
-//     { text: 'Visit doctor', done: true },
-//     { text: 'Buy meat', done: true },
-// ];
 //import { getArr } from './storage.js';
 
  
@@ -52,11 +45,12 @@ addButton.addEventListener('click', function () {
     };
     tasks.push(newMessade);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    //setArr();
+    
     console.dir(tasks);
     addMessage.value = '';
     listElem.innerHTML = '';
     renderTasks(tasks);
+    
 })
 
 listElem.addEventListener('click', function () {
@@ -73,22 +67,23 @@ listElem.addEventListener('click', function () {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
                 localStorage.setItem('tasks', JSON.stringify(tasks));
-                //setArr();
+                
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
                 localStorage.setItem('tasks', JSON.stringify(tasks));
-                //setArr();
+                
+                
             }
 
         
          listElem.innerHTML = '';
          renderTasks(tasks); 
-
+         
 });
 });
-document.addEventListener('DOMContentLoaded', renderTasks(tasks));
+//document.addEventListener('DOMContentLoaded', renderTasks(tasks));
    
 
 
-window.addEventListener('storage', renderTasks(tasks));
+//window.addEventListener('storage', renderTasks(tasks));
