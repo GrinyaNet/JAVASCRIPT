@@ -1,7 +1,7 @@
 //import { getArr } from './storage.js';
 
  
-const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
 
 
 const listElem = document.querySelector('.list');
@@ -44,7 +44,7 @@ addButton.addEventListener('click', function () {
         done: false,
     };
     tasks.push(newMessade);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasksList', JSON.stringify(tasks));
     
     console.dir(tasks);
     addMessage.value = '';
@@ -66,12 +66,12 @@ listElem.addEventListener('click', function () {
             if (checkbox.checked) {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
-                localStorage.setItem('tasks', JSON.stringify(tasks));
+                localStorage.setItem('tasksList', JSON.stringify(tasks));
                 
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
-                localStorage.setItem('tasks', JSON.stringify(tasks));
+                localStorage.setItem('tasksList', JSON.stringify(tasks));
                 
                 
             }
