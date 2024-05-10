@@ -46,8 +46,8 @@ addButton.addEventListener('click', function () {
         done: false,
     };
     tasks.push(newMessade);
-    //localStorage.setItem('tasksList', JSON.stringify(tasks));
-    setArr(tasks);
+    localStorage.setItem('tasksList', JSON.stringify(tasks));
+    //setArr(tasks);
     console.dir(tasks);
     addMessage.value = '';
     listElem.innerHTML = '';
@@ -68,14 +68,14 @@ listElem.addEventListener('click', function () {
             if (checkbox.checked) {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
-                //localStorage.setItem('tasksList', JSON.stringify(tasks));
-                setArr(tasks);
+                localStorage.setItem('tasksList', JSON.stringify(tasks));
+                //setArr(tasks);
                 
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
-                //localStorage.setItem('tasksList', JSON.stringify(tasks));
-                setArr(tasks);
+                localStorage.setItem('tasksList', JSON.stringify(tasks));
+                //setArr(tasks);
                 
             }
 
