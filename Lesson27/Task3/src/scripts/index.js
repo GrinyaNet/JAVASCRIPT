@@ -1,9 +1,9 @@
-import { getArr, setArr } from './storage.js';
+//import { getArr, setArr } from './storage.js';
 
  
-//const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
+const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
 
-const tasks = getArr();
+//const tasks = getArr();
 
 
 const listElem = document.querySelector('.list');
@@ -30,7 +30,7 @@ const renderTasks = tasksList => {
     listElem.append(...tasksElems);
 };
 
-renderTasks(getArr());
+renderTasks(tasks);
 
 // put your code here
 
@@ -51,7 +51,7 @@ addButton.addEventListener('click', function () {
     console.dir(tasks);
     addMessage.value = '';
     listElem.innerHTML = '';
-    renderTasks(getArr());
+    renderTasks(tasks);
     
 })
 
@@ -81,7 +81,7 @@ listElem.addEventListener('click', function () {
 
         
          listElem.innerHTML = '';
-         renderTasks(getArr()); 
+         renderTasks(tasks); 
          
 });
 });
