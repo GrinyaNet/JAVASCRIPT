@@ -1,7 +1,9 @@
-//import { getArr } from './storage.js';
+import { getArr, setArr } from './storage.js';
 
  
-const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
+//const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
+
+const tasks = getArr();
 
 
 const listElem = document.querySelector('.list');
@@ -28,7 +30,7 @@ const renderTasks = tasksList => {
     listElem.append(...tasksElems);
 };
 
-renderTasks(tasks);
+renderTasks(getArr());
 
 // put your code here
 
@@ -44,12 +46,12 @@ addButton.addEventListener('click', function () {
         done: false,
     };
     tasks.push(newMessade);
-    localStorage.setItem('tasksList', JSON.stringify(tasks));
-    
+    //localStorage.setItem('tasksList', JSON.stringify(tasks));
+    setArr(tasks);
     console.dir(tasks);
     addMessage.value = '';
     listElem.innerHTML = '';
-    renderTasks(tasks);
+    renderTasks(getArr());
     
 })
 
@@ -66,23 +68,24 @@ listElem.addEventListener('click', function () {
             if (checkbox.checked) {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
-                localStorage.setItem('tasksList', JSON.stringify(tasks));
+                //localStorage.setItem('tasksList', JSON.stringify(tasks));
+                setArr(tasks);
                 
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
-                localStorage.setItem('tasksList', JSON.stringify(tasks));
-                
+                //localStorage.setItem('tasksList', JSON.stringify(tasks));
+                setArr(tasks);
                 
             }
 
         
          listElem.innerHTML = '';
-         renderTasks(tasks); 
+         renderTasks(getArr()); 
          
 });
 });
-//document.addEventListener('DOMContentLoaded', renderTasks(tasks));
+//document.addEventListener('DOMContentLoaded', renderTasks(getArr()));
    
 
 
