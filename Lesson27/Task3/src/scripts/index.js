@@ -85,7 +85,7 @@ listElem.addEventListener('click', function () {
          
 });
 });
-//document.addEventListener('DOMContentLoaded', renderTasks(getArr()));
+document.addEventListener('DOMContentLoaded', renderTasks(tasks));
    
 
 
