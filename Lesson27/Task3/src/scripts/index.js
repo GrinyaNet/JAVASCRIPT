@@ -1,9 +1,8 @@
 //import { getArr, setArr } from './storage.js';
 
+
  
 const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
-
-//const tasks = getArr();
 
 
 const listElem = document.querySelector('.list');
@@ -32,6 +31,7 @@ const renderTasks = tasksList => {
 
 renderTasks(tasks);
 
+
 // put your code here
 
 let addMessage = document.querySelector('.task-input');
@@ -46,8 +46,7 @@ addButton.addEventListener('click', function () {
         done: false,
     };
     tasks.push(newMessade);
-    localStorage.setItem('tasksList', JSON.stringify(tasks));
-    //setArr(tasks);
+    localStorage.setItem('tasksList', JSON.stringify(tasks));    
     console.dir(tasks);
     addMessage.value = '';
     listElem.innerHTML = '';
@@ -69,13 +68,13 @@ listElem.addEventListener('click', function () {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
                 localStorage.setItem('tasksList', JSON.stringify(tasks));
-                //setArr(tasks);
+                
                 
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
                 localStorage.setItem('tasksList', JSON.stringify(tasks));
-                //setArr(tasks);
+                
                 
             }
 
@@ -85,8 +84,16 @@ listElem.addEventListener('click', function () {
          
 });
 });
-document.addEventListener('DOMContentLoaded', renderTasks(tasks));
-   
+
+ //const onDocumentLoaded = () => {
+   //  tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
+     //return tasks;
+    //renderTasks(tasks);
+ //};
+
+ //document.addEventListener('DOMContentLoaded', onDocumentLoaded);
+//document.addEventListener('DOMContentLoaded', renderTasks(tasks));
 
 
 //window.addEventListener('storage', renderTasks(tasks));
+//window.addEventListener('storage', onDocumentLoaded);
