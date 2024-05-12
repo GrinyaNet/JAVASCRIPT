@@ -1,15 +1,14 @@
-//import { getArr, setArr } from './storage.js';
-
-
- 
-const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
-//let tasks = [];
-
+const tasks = [
+    { text: 'Buy milk', done: false },
+    { text: 'Pick up Tom from airport', done: false },
+    { text: 'Visit party', done: false },
+    { text: 'Visit doctor', done: true },
+    { text: 'Buy meat', done: true },
+];
 
 const listElem = document.querySelector('.list');
 
 const renderTasks = tasksList => {
-    
     const tasksElems = tasksList
         .sort((a, b) => a.done - b.done)
         .map(({ text, done }) => {
@@ -32,7 +31,6 @@ const renderTasks = tasksList => {
 
 renderTasks(tasks);
 
-
 // put your code here
 
 let addMessage = document.querySelector('.task-input');
@@ -47,11 +45,10 @@ addButton.addEventListener('click', function () {
         done: false,
     };
     tasks.push(newMessade);
-    localStorage.setItem('tasksList', JSON.stringify(tasks));    
+    console.dir(tasks);
     addMessage.value = '';
     listElem.innerHTML = '';
-    renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []);
-    
+    renderTasks(tasks);
 })
 
 listElem.addEventListener('click', function () {
@@ -67,36 +64,63 @@ listElem.addEventListener('click', function () {
             if (checkbox.checked) {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = true;
-                console.log(tasks[Number(ind)].done);
-                //localStorage.setItem('tasksList', JSON.stringify(tasks));
-                
-                
             } else {
                 ind = checkbox.dataset.id;
                 tasks[Number(ind)].done = false;
-                //localStorage.setItem('tasksList', JSON.stringify(tasks));
-                
-                
             }
 
-            localStorage.setItem('tasksList', JSON.stringify(tasks));
-          
+        
          listElem.innerHTML = '';
-         renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []); 
-         
-         
+         renderTasks(tasks); 
+
 });
 });
 
- //const onDocumentLoaded = () => {
-   //  tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
-     //return tasks;
-    //renderTasks(tasks);
- //};
+// ////////
+// let addMessage = document.querySelector('.task-input');
+// const addButton = document.querySelector('.create-task-btn');
+// addButton.addEventListener('click', function () {
+//     if (addMessage.value === '') {
+//         return;
+//     }
 
- //document.addEventListener('DOMContentLoaded', onDocumentLoaded);
-//document.addEventListener('DOMContentLoaded', renderTasks(tasks));
+//     let newMessade = {
+//         text: addMessage.value,
+//         done: false,
+//     };
+//     tasks.push(newMessade);
+//     console.dir(tasks);
+//     addMessage.value = '';
+//     listElem.innerHTML = '';
+//     renderTasks(tasks);
+// })
 
 
-//window.addEventListener('storage', renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []));
-//window.addEventListener('storage', onDocumentLoaded);
+// const check = document.querySelectorAll('.list__item-checkbox').forEach(item => {
+
+//     let newCheck = Array.from(document.querySelectorAll('.list__item-checkbox'));
+//     newCheck.forEach((checkbox, index) => {
+//         checkbox.dataset.id = index;
+//     })
+
+
+//     item.addEventListener('click', function () {
+//         newCheck.forEach((checkbox) => {
+//             let ind = 0;
+//             if (checkbox.checked) {
+//                 ind = checkbox.dataset.id;
+//                 tasks[Number(ind)].done = true;
+//             } else {
+//                 ind = checkbox.dataset.id;
+//                 tasks[Number(ind)].done = false;
+//             }
+
+//         })
+//         listElem.innerHTML = '';
+//         renderTasks(tasks);
+
+//     });
+
+
+// });
+
