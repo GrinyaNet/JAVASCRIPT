@@ -5,6 +5,8 @@
 
 const failedPromise = new Promise((resolve, reject) => {
     /* ...code here */
+    const p = new Error('Oops, error!');
+    reject(p);
   });
   
   /*
@@ -13,5 +15,6 @@ const failedPromise = new Promise((resolve, reject) => {
   
   failedPromise.catch(function onError(error) {
     /* ...code here */
+    console.log(error);
   });
   
