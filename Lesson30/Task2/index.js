@@ -11,13 +11,16 @@ const userDataPromise = new Promise(resolve => {
    */
   
   /* ...code here */
+console.log(userDataPromise); 
   
   /*
    * Выведи в консоль переменную userData в обработчике промиса
    * Ответь себе на вопрос, что находится в переменной userData?
    */
-  userDataPromise.then(function onSuccess(userData) {
+  
     /* ...code here */
+    userDataPromise.then(function onSuccess(userData) {
+    console.log(userData);
   });
   
   /*
@@ -27,7 +30,8 @@ const userDataPromise = new Promise(resolve => {
    * Tom и 17 достань с данных, которые приходят в ф-цию onSuccess
    */
   
-  userDataPromise.then(function onSuccess(/* ...code here */) {
+  userDataPromise.then(function onSuccess(userData) {
     /* ...code here */
+    console.log('My name is ' + userData.name + '. ' + 'I am ' + userData.age + ' years old');
   });
   
