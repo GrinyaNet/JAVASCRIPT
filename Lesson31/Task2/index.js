@@ -1,15 +1,17 @@
 const asyncCalculator = num => new Promise((resolve) => {
-    console.log(`Initial value: ${num}`);
+    
     setTimeout(() => {
-            resolve(num)            
-        }, 3000);
+            resolve(num)
+            console.log(`Initial value: ${num}`);           
+        }, 500);
     })
     
   .then(value => new Promise((resolve) => {
         const result = value * value;
-        console.log(`Squered value: ${result}`);
+        //console.log(`Squered value: ${result}`);
         setTimeout(() => {
-            resolve(result);            
+            resolve(result);
+            console.log(`Squered value: ${result}`);
         }, 5000);
   }))
 
