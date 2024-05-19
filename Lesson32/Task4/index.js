@@ -15,31 +15,30 @@ const promiseNumber3 = Promise.resolve(8);
 
 
 // })
-
-// const asyncSum = (...asyncNumbers) => {
-//   const resultPromise = new Promise((resolve) => {
+//  const arr = [];
+//  const a = [];
+// const resultPromise = (...asyncNumbers) => {
+//   const p = new Promise((resolve) => {
 //         setTimeout(() => {
 //             Promise.all(asyncNumbers)            
-//             .then(numbers => arr.push(numbers));
-//                 console.log(arr);                
-//             resolve(arr);
+//             //.then(numbers => arr.push(numbers));
+//             .then(numbers => {a = [...numbers]});
+//                 console.log(a);                
+//             resolve(a);
 //         }, 2000);
-        
+//         //return a;
 //     });
-//     return resultPromise;
+//     return a;
 // };
-const arr = [];
-arr.push(promiseNumber1, promiseNumber2, promiseNumber3);
+ const arr = [];
+// const p =[];
+ arr.push(promiseNumber1, promiseNumber2, promiseNumber3);
 
- resultPromise = new Promise((resolve) => {
-             setTimeout(() => {
-                const p = Promise.all(arr)                               
-                 resolve(p);
-            }, 2000);            
+ resultPromise = new Promise((resolve) => {             
+                const p = Promise.all(arr);                
+                console.log(p);
+                 resolve(p);                     
          });
-         
-
-
 
 resultPromise
     .then(numbersList => {
