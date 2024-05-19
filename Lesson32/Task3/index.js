@@ -2,13 +2,12 @@
  * ф-ция makePromise должна вернуть промис со значением переданным в ф-цию
  */
 
-const makePromise = () => {
-    // put you code here
-    //const num ='';
+const makePromise = (num) => {
+    // put you code here    
     console.log();
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            resolve();
+            resolve(num);
         }, 2000);
     })
   };
