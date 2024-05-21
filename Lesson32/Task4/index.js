@@ -30,12 +30,9 @@ const promiseNumber3 = Promise.resolve(8);
 //     });
 //     return a;
 // };
- const arr = [];
-// const p =[];
- arr.push(promiseNumber1, promiseNumber2, promiseNumber3);
-
+ 
  const resultPromise = new Promise((resolve) => {             
-                const p = Promise.all(arr);                
+                const p = Promise.all(promiseNumber1, promiseNumber2, promiseNumber3);
                 console.log(p);
                  resolve(p);                     
          });
