@@ -34,7 +34,7 @@ const promiseNumber3 = Promise.resolve(8);
 // const p =[];
  arr.push(promiseNumber1, promiseNumber2, promiseNumber3);
 
- resultPromise = new Promise((resolve) => {             
+ const resultPromise = new Promise((resolve) => {             
                 const p = Promise.all(arr);                
                 console.log(p);
                  resolve(p);                     
