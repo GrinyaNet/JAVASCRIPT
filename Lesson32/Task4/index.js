@@ -51,4 +51,5 @@ resultPromise
     });
 
 //asyncSum(promiseNumber1, promiseNumber2, promiseNumber3);
+
 //resultPromise(promiseNumber1, promiseNumber2, promiseNumber3);
