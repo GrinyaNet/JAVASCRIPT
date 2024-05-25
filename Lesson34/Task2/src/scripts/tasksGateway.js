@@ -1,4 +1,4 @@
-const baseUrl = 'https';
+const baseUrl = 'https://crudcrud.com/api/7a408b94c2e943e99d4de4522a839847/tasks';
 
 export const getTasksList = () => {
     return fetch(baseUrl)

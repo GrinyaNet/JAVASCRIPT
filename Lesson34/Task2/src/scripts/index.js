@@ -1,15 +1,15 @@
-//import { getArr, setArr } from './storage.js';
+import { createTask, getTasksList } from './tasksGateway.js';
 
 
- 
+
 const tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
-//let tasks = [];
+
 
 
 const listElem = document.querySelector('.list');
 
 const renderTasks = tasksList => {
-    
+
     const tasksElems = tasksList
         .sort((a, b) => a.done - b.done)
         .map(({ text, done }) => {
@@ -47,56 +47,47 @@ addButton.addEventListener('click', function () {
         done: false,
     };
     tasks.push(newMessade);
-    localStorage.setItem('tasksList', JSON.stringify(tasks));    
-    addMessage.value = '';
-    listElem.innerHTML = '';
-    renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []);
-    
+    createTask(tasks)
+    .then(() => getTasksList())
+    .then(tasks => {
+        localStorage.setItem('tasksList', JSON.stringify(tasks))
+        addMessage.value = '';
+        listElem.innerHTML = '';
+        renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []);
+    })
+
+    //localStorage.setItem('tasksList', JSON.stringify(tasks));    
+    // addMessage.value = '';
+    // listElem.innerHTML = '';
+    // renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []);
+
 })
 
 listElem.addEventListener('click', function () {
 
-     let newCheck = Array.from(document.querySelectorAll('.list__item-checkbox'));
-     newCheck.forEach((checkbox, index) => {
-         checkbox.dataset.id = index;
-     })
-     
-     
-        newCheck.forEach((checkbox) => {
-            let ind = 0;
-            if (checkbox.checked) {
-                ind = checkbox.dataset.id;
-                tasks[Number(ind)].done = true;
-                console.log(tasks[Number(ind)].done);
-                //localStorage.setItem('tasksList', JSON.stringify(tasks));
-                
-                
-            } else {
-                ind = checkbox.dataset.id;
-                tasks[Number(ind)].done = false;
-                //localStorage.setItem('tasksList', JSON.stringify(tasks));
-                
-                
-            }
+    let newCheck = Array.from(document.querySelectorAll('.list__item-checkbox'));
+    newCheck.forEach((checkbox, index) => {
+        checkbox.dataset.id = index;
+    })
 
-            localStorage.setItem('tasksList', JSON.stringify(tasks));
-          
-         listElem.innerHTML = '';
-         renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []); 
-         
-         
-});
+    newCheck.forEach((checkbox) => {
+        let ind = 0;
+        if (checkbox.checked) {
+            ind = checkbox.dataset.id;
+            tasks[Number(ind)].done = true;
+            console.log(tasks[Number(ind)].done);
+
+        } else {
+            ind = checkbox.dataset.id;
+            tasks[Number(ind)].done = false;
+
+        }
+
+        localStorage.setItem('tasksList', JSON.stringify(tasks));
+
+        listElem.innerHTML = '';
+        renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []);
+
+    });
 });
 
- //const onDocumentLoaded = () => {
-   //  tasks = JSON.parse(localStorage.getItem('tasksList')) || [];
-     //return tasks;
-    //renderTasks(tasks);
- //};
-
- //document.addEventListener('DOMContentLoaded', onDocumentLoaded);
-//document.addEventListener('DOMContentLoaded', renderTasks(tasks));
-
-
-//window.addEventListener('storage', renderTasks(JSON.parse(localStorage.getItem('tasksList')) || []));
-//window.addEventListener('storage', onDocumentLoaded);
