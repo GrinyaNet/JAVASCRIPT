@@ -10,14 +10,12 @@ export const onCreateTask = () => {
     if (!text) {
         return;
     }
-    taskTitleInputElem.value = '';
-    //const tasksList = getItem('tasksList') || [];
+    taskTitleInputElem.value = '';    
 
     const newTask = {
         text,
         done: false,
-        createDate: new Date().toISOString(),
-        //id: Math.random().toString()
+        createDate: new Date().toISOString(),        
     };
 
     createTask(newTask)

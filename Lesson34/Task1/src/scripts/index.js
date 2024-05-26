@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setItem('tasksList', tasksList)
             renderTasks();
         })
-    //renderTasks();
+    
     initTodoListHandlers();
 });
 

@@ -3,17 +3,13 @@ import { getItem, setItem } from './storage.js';
 import { getTasksList, updateTask, deleteTask } from './tasksGateway.js';
 
 export const onToggleTask = e => {
-    //const isCheckbox = e.target.classList.contains('list-item__checkbox');
-    const isCheckbox = e.target.classList.contains('list__item-checkbox');
+        const isCheckbox = e.target.classList.contains('list__item-checkbox');
     //const isCheckboxDell = e.target.classList.contains('list__item__delete-btn');
 
     console.log(e.target);
-    if (isCheckbox) {
-        //return;
-        //}
+    if (isCheckbox) {        
 
-        const taskId = e.target.dataset.id;
-        console.log(taskId);
+        const taskId = e.target.dataset.id;        
         const tasksList = getItem('tasksList');
         const { text, createDate } = tasksList
             .find(task => task.id === taskId);
@@ -34,14 +30,12 @@ export const onToggleTask = e => {
                 renderTasks();
 
             });
-    } else {
-        console.log('DELETE');
-        const taskId = e.target.dataset.id;
-        console.log(taskId);
-        
+    } else {        
+        const taskId = e.target.dataset.id;        
         deleteTask(taskId);
-        //renderTasks();
+        renderTasks();
     }
+};
     // const newTasksList = tasksList
     //     .map(task => {
     //         if (task.id === e.target.dataset.id) {
@@ -60,4 +54,3 @@ export const onToggleTask = e => {
     // setItem('tasksList', newTasksList);
 
     // renderTasks();
-};
