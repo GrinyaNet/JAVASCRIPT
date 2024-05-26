@@ -1,5 +1,6 @@
 import { renderTasks } from './renderer.js';
 import { getItem, setItem } from './storage.js';
+import { getTasksList, updateTask } from './tasksGateway.js';
 
 export const onToggleTask = e => {
     //const isCheckbox = e.target.classList.contains('list-item__checkbox');
@@ -8,23 +9,44 @@ export const onToggleTask = e => {
     if (!isCheckbox) {
         return;
     }
+
+    const taskId = e.target.dataset.id;
     const tasksList = getItem('tasksList');
-    const newTasksList = tasksList
-    .map(task => {
-        if (task.id === e.target.dataset.id) {
-            const done = e.target.checked;
-            return {
-                ...task,
-                done,
-                finishDate: done
-                ? new Date().toISOString()
-                : null
-            };
-        }
+    const { text, createDate } = tasksList
+        .find(task => task.id === taskId);
+    const done = e.target.checked;
 
-        return task;
-    });
-    setItem('tasksList', newTasksList);
+    const updatedTask = {
+        text,
+        createDate,
+        done,
+        finishDate: done
+            ? new Date().toISOString()
+            : null
+    };
+    updatedTask(taskId, updatedTask)
+        .then(() => getTasksList())
+        .then(newTasksList => {
+            setItem('tasksList', newTasksList);
+            renderTasks();
+        });
 
-    renderTasks();
+    // const newTasksList = tasksList
+    //     .map(task => {
+    //         if (task.id === e.target.dataset.id) {
+    //             const done = e.target.checked;
+    //             return {
+    //                 ...task,
+    //                 done,
+    //                 finishDate: done
+    //                     ? new Date().toISOString()
+    //                     : null
+    //             };
+    //         }
+
+    //         return task;
+    //     });
+    // setItem('tasksList', newTasksList);
+
+    // renderTasks();
 };

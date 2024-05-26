@@ -15,3 +15,14 @@ export const createTask = taskData => {
     })
     .then(response => response.json())
 }
+
+export const updateTask = (taskId, updatedTaskData) => {
+    return fetch(`baseUrl/${taskId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(updatedTaskData)
+    })
+    //.then(response => response.json())
+};

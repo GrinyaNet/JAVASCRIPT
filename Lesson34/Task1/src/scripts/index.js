@@ -1,9 +1,16 @@
-import {initTodoListHandlers} from './todoList.js';
-import {renderTasks } from './renderer.js';
+import { initTodoListHandlers } from './todoList.js';
+import { renderTasks } from './renderer.js';
+import { getTasksList } from './tasksGateway.js';
+import { setItem } from './storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-renderTasks();
-initTodoListHandlers();
+    getTasksList()
+.then(tasksList => {
+    setItem('tasksList', tasksList)
+    renderTasks();
+})
+    //renderTasks();
+    initTodoListHandlers();
 });
 
 const onStarageChange = e => {
