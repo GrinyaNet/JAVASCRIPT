@@ -26,19 +26,20 @@ const createCheckbox = ({ done, id }) => {
 
 const createListItem = ({ text, done, id }) => {
     const listItemElem = document.createElement('li');
-    listItemElem.classList.add('list__item');
+    listItemElem.classList.add('list__item', 'list-item');
     const checkboxElem = createCheckbox({ done, id });
     if (done) {
         listItemElem.classList.add('list__item_done');
     }
-    listItemElem.append(checkboxElem, text, deleteBtnElem);
+    //listItemElem.append(checkboxElem, text, deleteBtnElem);
 
     const textElem = document.createElement('span');
-    textElem.classList.add('list-item__text');
+    textElem.classList.add('list__item__text');
     textElem.textContent = text;
 
     const deleteBtnElem = document.createElement('button');
-    deleteBtnElem.classList.add('list-item__delete-btn');
+    deleteBtnElem.setAttribute('data-id', id);
+    deleteBtnElem.classList.add('list__item__delete-btn');
 
     listItemElem.append(checkboxElem, textElem, deleteBtnElem);
 

@@ -1,4 +1,4 @@
-import { createTask, getTasksList } from '../../../Task2/src/scripts/tasksGateway.js';
+import { createTask, getTasksList } from './tasksGateway.js';
 import { renderTasks } from './renderer.js';
 import { getItem, setItem } from './storage.js';
 

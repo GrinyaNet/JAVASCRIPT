@@ -5,10 +5,10 @@ import { setItem } from './storage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     getTasksList()
-.then(tasksList => {
-    setItem('tasksList', tasksList)
-    renderTasks();
-})
+        .then(tasksList => {
+            setItem('tasksList', tasksList)
+            renderTasks();
+        })
     //renderTasks();
     initTodoListHandlers();
 });
