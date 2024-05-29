@@ -7,8 +7,8 @@ const inputs = document.querySelectorAll('.form-input');
 
 for (let input of inputs) {
     input.addEventListener('blur', () => {
-        const res = document.querySelector('.login-form').reportValidity()
-                   if (res === true) {
+        const resInput = document.querySelector('.login-form').reportValidity()
+                   if (resInput === true) {
             console.log("OK!!!"); 
             submitBtn.removeAttribute('disabled');
         } 
