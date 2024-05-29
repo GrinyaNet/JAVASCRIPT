@@ -7,17 +7,17 @@ const inputs = document.querySelectorAll('.form-input');
 
 for (let input of inputs) {
     input.addEventListener('blur', () => {
-                   if (input.reportValidity()) {
+        const res = document.querySelector('.login-form').reportValidity()
+                   if (res === true) {
             console.log("OK!!!"); 
             submitBtn.removeAttribute('disabled');
-        } else {
-            
-            return buttonElem.setAttribute('disabled');
-        }
+        } 
        
     });
-    
+
 }
+
+
 
 const loginUser = (event) => {
     event.preventDefault();
