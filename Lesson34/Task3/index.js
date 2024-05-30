@@ -4,7 +4,7 @@ const submitBtn = document.querySelector(".submit-button");
 const inputs = document.querySelectorAll(".form-input");
 
 for (let input of inputs) {
-  input.addEventListener("blur", () => {
+  input.addEventListener("input", () => {
     const resInput = document.querySelector(".login-form").reportValidity();
     if (resInput === true) {
       submitBtn.removeAttribute("disabled");
@@ -26,9 +26,8 @@ const loginUser = (event) => {
     body: JSON.stringify(formDataObj),
   })
     .then((response) => response.json())
-    .then((data) => alert(JSON.stringify(data)));
-
-  form.reset();
+    .then((data) => alert(JSON.stringify(data)))
+    .then(() => form.reset());
 };
 
 const form = document.querySelector(".login-form");
