@@ -28,7 +28,7 @@ const loginUser = (event) => {
     .then((response) => response.json())
     .then((data) => alert(JSON.stringify(data)));
 
-  formElem.reset();
+  form.reset();
 };
 
 const form = document.querySelector(".login-form");
