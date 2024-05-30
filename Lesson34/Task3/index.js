@@ -7,18 +7,16 @@ for (let input of inputs) {
   input.addEventListener("blur", () => {
     const resInput = document.querySelector(".login-form").reportValidity();
     if (resInput === true) {
-      console.log("OK!!!");
       submitBtn.removeAttribute("disabled");
     }
   });
-};
+}
 
 const loginUser = (event) => {
   event.preventDefault();
   const myFormData = new FormData(form);
 
   const formDataObj = Object.fromEntries(myFormData);
-  console.log(formDataObj);
 
   fetch(baseUrl, {
     method: "POST",
@@ -29,7 +27,8 @@ const loginUser = (event) => {
   })
     .then((response) => response.json())
     .then((data) => alert(JSON.stringify(data)));
-  form.reset();
+
+  formElem.reset();
 };
 
 const form = document.querySelector(".login-form");
